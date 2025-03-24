@@ -64,28 +64,29 @@ describe("ECDSA Verifier Testing", function async() {
     };
 
     describe("ECDSA Circuit Compiling", function async() {
-        it("validate keys and signatures", async () => {
+        // TODO: fix me
+        // it("validate keys and signatures", async () => {
             
-            const k = '0cd02d3fe86b87359ce3373ad984d24c2a19672f67c0cdebbfcba7a50db3cb29aec0b934643b5e59d9aae1bc3d5daa8b8ff6025b7ae88b5d655dbd514cce798e'
-            const o = pubkeyToXYArrays(k)
-            console.log(o)
+        //     const k = '0cd02d3fe86b87359ce3373ad984d24c2a19672f67c0cdebbfcba7a50db3cb29aec0b934643b5e59d9aae1bc3d5daa8b8ff6025b7ae88b5d655dbd514cce798e'
+        //     const o = pubkeyToXYArrays(k)
+        //     console.log(o)
 
-            const address = ethers.computeAddress('0x04' + k);
+        //     const address = ethers.computeAddress('0x04' + k);
 
-            console.log(address, BigInt(address))
-        });
-        // let circuit;
-        // it("should compile", async () => {
-        //     circuit = await wasm_tester(path.join(__dirname, "../circuits", "ecdsa-verify.circom"),
-        //         { verbose: true });
+        //     console.log(address, BigInt(address))
         // });
+        let circuit;
+        it("should compile", async () => {
+            circuit = await wasm_tester(path.join(__dirname, "../circuits", "ecdsa-verify.circom"),
+                { verbose: true });
+        });
 
-        // it("should verify ecdsa signature", async () => {
-        //     let witness = await circuit.calculateWitness(witnessData);
+        it("should verify ecdsa signature", async () => {
+            let witness = await circuit.calculateWitness(witnessData);
 
-        //     await circuit.assertOut(witness, { out: "1" })
-        //     await circuit.checkConstraints(witness);
-        // })
+            await circuit.assertOut(witness, { out: "1" })
+            await circuit.checkConstraints(witness);
+        })
     })
 
 })
