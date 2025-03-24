@@ -1,4 +1,5 @@
 pragma circom 2.0.0;
+// doc: https://0xparc.org/blog/zk-ecdsa-1
 
 include "../circom-ecdsa/circuits/ecdsa.circom";
 

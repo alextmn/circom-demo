@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "circom_tester": "^0.0.21",
+    "circomlibjs": "^0.1.7",
     "ethers": "^6.13.5",
     "mocha": "^11.1.0",
     "snarkjs": "^0.7.5"
