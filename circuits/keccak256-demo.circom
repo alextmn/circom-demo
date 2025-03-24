@@ -1,11 +1,11 @@
 pragma circom 2.1.6;
 
-include "https://github.com/0xPARC/circom-ecdsa/blob/master/circuits/zk-identity/eth.circom";
+include "../circom-ecdsa/circuits/zk-identity/eth.circom";
 
 template Example () {
     signal input pubkey[2][4];
     signal input addr;
-    signal output o;
+    signal output out;
     
     component f = FlattenPubkey(64,4);
     for(var i = 0; i < 4; i++){
@@ -23,7 +23,7 @@ template Example () {
     eq1.in[0] <== p.address;
     eq1.in[1] <== addr;
 
-    o <== eq1.out;
+    out <== eq1.out;
 }
 
 component main { public [ pubkey, addr ] } = Example();
